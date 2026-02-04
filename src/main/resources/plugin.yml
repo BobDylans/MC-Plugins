@@ -2,6 +2,7 @@ name: PaperHello
 version: 1.0.0
 main: com.example.paperhello.PaperHelloPlugin
 api-version: 1.20
+# 这里的command对应的是玩家在游戏中的使用的指令,之后这些内容会被加载到类中
 commands:
   hello:
     description: Say hello

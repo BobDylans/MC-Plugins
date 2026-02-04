@@ -1,2 +1,5 @@
-.worktrees/
+paper-server/
+.idea/
+paper-hello.iml
 target/
+.vscode/settings.json

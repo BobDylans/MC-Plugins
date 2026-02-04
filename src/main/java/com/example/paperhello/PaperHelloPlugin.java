@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class PaperHelloPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
+        // 读取yml文件获取到对应的值
         if (getCommand("hello") != null) {
             getCommand("hello").setExecutor(new HelloCommand());
         }

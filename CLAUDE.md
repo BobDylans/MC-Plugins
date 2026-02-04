@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-PaperHello is a PaperMC 1.20.x Minecraft server plugin written in Java 17. It follows Test-Driven Development (TDD) practices with Maven as the build system.
+PaperHello is a PaperMC 1.20.x Minecraft server plugin written in Java 21. It follows Test-Driven Development (TDD) practices with Maven as the build system.
 
 ## Build & Development Commands
 
@@ -74,7 +74,7 @@ com.example.paperhello/
 - Mockito 5.10.0 (test scope)
 
 ### Code Quality
-- Java 17 target/source compatibility
+- Java 21 target/source compatibility
 - UTF-8 encoding
 - No deep nesting
 - Immutable patterns
