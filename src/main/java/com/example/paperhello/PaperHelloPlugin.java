@@ -8,5 +8,6 @@ public class PaperHelloPlugin extends JavaPlugin {
         if (getCommand("hello") != null) {
             getCommand("hello").setExecutor(new HelloCommand());
         }
+        getServer().getPluginManager().registerEvents(new JoinListener(), this);
     }
 }
