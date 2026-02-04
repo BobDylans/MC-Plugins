@@ -3,4 +3,10 @@ package com.example.paperhello;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class PaperHelloPlugin extends JavaPlugin {
+    @Override
+    public void onEnable() {
+        if (getCommand("hello") != null) {
+            getCommand("hello").setExecutor(new HelloCommand());
+        }
+    }
 }
