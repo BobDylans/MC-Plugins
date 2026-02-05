@@ -3,3 +3,4 @@ paper-server/
 paper-hello.iml
 target/
 .vscode/settings.json
+.worktrees/
