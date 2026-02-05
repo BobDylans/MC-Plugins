@@ -7,3 +7,6 @@ commands:
   hello:
     description: Say hello
     usage: /hello
+  countdown:
+    description: Start a countdown
+    usage: /countdown <seconds>

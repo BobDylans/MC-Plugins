@@ -10,10 +10,20 @@ public class CountdownManager {
     private final AtomicInteger taskIdGenerator = new AtomicInteger(1);
     private final Consumer<CountdownTask> scheduler;
     private final Runnable onTaskComplete;
+    private final Consumer<String> broadcaster;
 
     public CountdownManager(Consumer<CountdownTask> scheduler, Runnable onTaskComplete) {
+        this(scheduler, onTaskComplete, msg -> {});
+    }
+
+    public CountdownManager(
+            Consumer<CountdownTask> scheduler,
+            Runnable onTaskComplete,
+            Consumer<String> broadcaster
+    ) {
         this.scheduler = scheduler;
         this.onTaskComplete = onTaskComplete;
+        this.broadcaster = broadcaster;
     }
 
     public boolean tryStartCountdown(String playerName, int seconds) {
@@ -24,7 +34,7 @@ public class CountdownManager {
         CountdownTask task = new CountdownTask(
             playerName,
             seconds,
-            msg -> {},
+            broadcaster,
             () -> complete(taskId, playerName)
         );
         playerToTaskId.put(playerName, taskId);
