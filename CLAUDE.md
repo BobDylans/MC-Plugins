@@ -38,7 +38,13 @@ mvn test surefire-report:report
 
 ### Core Components
 - **PaperHelloPlugin**: Main plugin class extending JavaPlugin
+  - Manages a fixed-size thread pool (size=2) for async operations
+  - Registers commands and event listeners in `onEnable()`
+  - Properly shuts down thread pool in `onDisable()`
 - **HelloCommand**: Command executor for `/hello`
+  - Uses dependency injection (ExecutorService via constructor)
+  - Executes commands asynchronously to avoid blocking main thread
+  - Sends "你好!" and "Hello from PaperHello!" messages
 - **JoinListener**: Event listener for player joins
 
 ### Package Structure
@@ -69,9 +75,9 @@ com.example.paperhello/
 - Commands defined in `plugin.yml`
 
 ### Dependencies
-- Paper API 1.20.4-SNAPSHOT (provided scope)
-- JUnit 5.10.2 (test scope)
-- Mockito 5.10.0 (test scope)
+- Paper API 1.20.4-R0.1-SNAPSHOT (provided scope)
+- JUnit Jupiter 5.10.2 (test scope)
+- Mockito Core 5.10.0 (test scope)
 
 ### Code Quality
 - Java 21 target/source compatibility
@@ -84,6 +90,8 @@ com.example.paperhello/
 
 - Plugin automatically loads and registers components in `onEnable()`
 - Join listener sends "Welcome to the server!" message
-- Hello command responds with "Hello from PaperHello!"
+- Hello command sends "你好!" and "Hello from PaperHello!" asynchronously
+- Thread pool (size=2) is managed in `PaperHelloPlugin` and injected into `HelloCommand`
+- Always shut down thread pool in `onDisable()` to prevent resource leaks
 - All tests should pass before committing
 - Follow conventional commit format
