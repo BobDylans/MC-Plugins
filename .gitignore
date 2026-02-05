@@ -3,4 +3,10 @@ paper-server/
 paper-hello.iml
 target/
 .vscode/settings.json
+.classpath
+.factorypath
+.project
+.settings/
+.sisyphus/
+src/test/resources/
 .worktrees/
