@@ -41,9 +41,11 @@ public class PaperHelloPlugin extends JavaPlugin {
         if (getCommand("countdown") != null) {
             getCommand("countdown").setExecutor(new CountdownCommand(countdownManager));
         }
-
+        // 创建一个放刷屏过滤器
         SpamFilter spamFilter = new SpamFilter(System::currentTimeMillis);
+        // 再创建一个数据清理器
         statsCleaner = new StatsCleaner(spamFilter, System::currentTimeMillis);
+        // 启动定期清理任务
         statsCleaner.startCleanup();
 
         // 获取server,然后获取PluginManager,然后注册事件
